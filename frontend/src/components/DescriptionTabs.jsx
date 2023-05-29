@@ -7,7 +7,7 @@ import Episodes from "./Episodes";
 import Casting from "./Casting";
 
 function DescriptionTabs({ anime }) {
-  const [selectedTab, setSelectedTab] = useState("characters");
+  const [selectedTab, setSelectedTab] = useState("episodes");
   const handleTabChange = (event, newValue) => {
     setSelectedTab(newValue);
   };
@@ -27,6 +27,17 @@ function DescriptionTabs({ anime }) {
           },
         })}
       >
+        <Tab
+          label="Episodes"
+          value="episodes"
+          sx={(theme) => ({
+            [theme.breakpoints.up("md")]: {
+              width: 130,
+              textAlign: "left",
+              pl: 0,
+            },
+          })}
+        />
         <Tab
           label="Characters"
           value="characters"
@@ -49,20 +60,9 @@ function DescriptionTabs({ anime }) {
             },
           })}
         />
-        <Tab
-          label="Episodes"
-          value="episodes"
-          sx={(theme) => ({
-            [theme.breakpoints.up("md")]: {
-              width: 130,
-              textAlign: "left",
-              pl: 0,
-            },
-          })}
-        />
       </Tabs>
-      {selectedTab === "characters" && <Characters anime={anime} />}
       {selectedTab === "episodes" && <Episodes anime={anime} />}
+      {selectedTab === "characters" && <Characters anime={anime} />}
       {selectedTab === "casting" && <Casting anime={anime} />}
     </Box>
   );

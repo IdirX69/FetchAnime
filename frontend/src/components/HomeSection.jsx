@@ -40,6 +40,7 @@ function HomeSection({
           [theme.breakpoints.up("md")]: {
             mt: 4,
             width: "95%",
+            margin: "auto",
             display: "flex",
             justifyContent: "space-between",
           },
@@ -53,7 +54,8 @@ function HomeSection({
               p: 1,
             },
             [theme.breakpoints.up("md")]: {
-              ml: 7,
+              textAlign: "left",
+
               mb: 3,
             },
           })}
